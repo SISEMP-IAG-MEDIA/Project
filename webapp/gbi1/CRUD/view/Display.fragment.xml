@@ -1,0 +1,45 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+              <l:Grid
+		defaultSpan="L12 M12 S12"
+		width="auto">
+		<l:content>
+			<f:SimpleForm id="idCampaignForm"
+				minWidth="1024"
+				maxContainerCols="2"
+				editable="false"
+				layout="ResponsiveGridLayout"
+				title="Campaign Details"
+				labelSpanL="4"
+				labelSpanM="4"
+				emptySpanL="0"
+				emptySpanM="0"
+				columnsL="2"
+				columnsM="2">
+				<f:content>
+					<core:Title text="Campaign" />
+					<Label text="Number" />
+					<Text text="{gbi1>ID.CampaignID}" />
+					<Label text="Campaign Name" />
+					<Text text="{gbi1>CampaignName}" />
+					<Label text="Reporting Starts" />
+					<Text text="{gbi1>ReportingStarts}" />
+					<Label text="Reporting Ends" />
+					<Text text="{gbi1>ReportingEnds}" />
+					<core:Title text="Insights" />
+					<Label text="AmountSpent" />
+					<Text text="{gbi1>Amount Spent}" />
+					<Label text="Impressions" />
+					<Text text="{gbi1>Impressions}" />
+					<Label text="Reach" />
+					<Text text="{gbi1>Reach}" />
+					<Label text="Rate Result" />
+					<Text text="{gbi1>RateResult}" />
+				</f:content>
+			</f:SimpleForm>
+		</l:content>
+	</l:Grid>	
+</core:FragmentDefinition>

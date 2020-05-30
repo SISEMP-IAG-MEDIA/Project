@@ -1,0 +1,34 @@
+namespace "gbi-student-271".gbi1.data;
+
+@Schema: 'GBI_271' 
+context GBI_271 { 
+    
+    context MASTERDATA{
+    
+     @Catalog.tableType: #COLUMN
+    	entity CAMPAIGN {
+    		key	ID : String(10) not null;
+    		ReportingStarts : String(20) ;
+    		ReportingEnds: String(20) ;
+    		CampaignName: String(20) ;	
+    		AmountSpent: String(20) ;
+    		Impressions: String(20) ;
+    		Reach: String(20) ;
+    		ResultRate: String(20) ;
+    		ResultIndicator	: String(20) ;
+    		CPM: String(20) ;
+    		LinkClicks: String(20) ;
+    		CTR: String(20) ;
+    		CPC: String(20) ;
+    		RegistrationsCompleted: String(20) ;	
+    		CostperRegistrationCompleted: String(20) ;
+    		Leads: String(20) ;
+    		CostperLead: String(20) ;
+    		AppointmentsScheduled: String(20) ;
+    		CostperSchedule: String(20) ;
+    		Purchases: String(20) ;
+    		PurchasesConversionValue: String(20) ;
+    	};
+    };
+    
+};

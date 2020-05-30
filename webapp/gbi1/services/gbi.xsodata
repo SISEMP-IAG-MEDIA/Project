@@ -1,0 +1,5 @@
+service {
+    
+        "gbi-student-271.gbi1.data::GBI_271.MASTERDATA.CAMPAIGN" as "Campaigns";
+
+}

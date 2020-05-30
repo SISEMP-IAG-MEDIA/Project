@@ -1,0 +1,42 @@
+PROCEDURE
+    "GBI_271"."gbi-student-271.gbi1.data::createCampaign" 
+    
+  LANGUAGE SQLSCRIPT
+  SQL SECURITY INVOKER AS 
+
+begin
+declare	lvCampaignID  String;
+declare lvReportingStarts  String;
+declare lvCampaignName  String;
+declare lvReportingEnds  String;
+declare lvAmountSpent String;
+declare lvImpressions String;
+declare lvReach String;
+declare lvResultRate String;
+declare lvResultIndicator	String;
+declare	lvCPM String;
+declare lvLinkClicks String;
+declare	lvCTR String;
+declare	lvCPC String;
+declare	lvRegistrationsCompleted String;
+declare	lvCostperRegistrationCompleted String;
+declare	lvLeads String;
+declare	lvCostperLead String;
+declare	lvAppointmentsScheduled String;
+declare	lvCostperSchedule String;
+declare	lvPurchases String;
+declare	lvPurchasesConversionValue String;
+select "ID.CampaignID", "ReportingStarts", "CampaignName", "ReportingEnds", "AmountSpent","Impressions", "Reach","ResultRate","ResultIndicator","CPM","LinkClicks","CTR","CPC","RegistrationsCompleted","CostperRegistrationCompleted","Leads","CostperLead","AppointmentsScheduled","CostperSchedule","Purchases","PurchasesConversionValue"
+into lvCampaignID, lvReportingStarts, lvCampaignName, lvReportingEnds, lvAmountSpent, lvImpressions, lvReach,lvResultRate,lvResultIndicator,lvCPM,lvLinkClicks,lvCTR,lvCPC,lvRegistrationsCompleted,lvCostperRegistrationCompleted,lvLeads, lvCostperLead,lvAppointmentsScheduled, lvCostperSchedule,lvPurchases,lvPurchasesConversionValue from :intab;
+
+
+if :lvCampaignName = '' then
+  outtab = select 500 as http_status_code,
+               'Campaign Name cannot be null '  as error_message,
+              ' No Way! CampaignName field must not be empty' as detail from dummy;
+else
+
+insert into "gbi-student-271.gbi1.data::GBI_271.MASTERDATA.CAMPAIGN"
+         values ("gbi-student-271.gbi1.data::campaignid".NEXTVAL,lvCampaignID, lvReportingStarts, lvCampaignName, lvReportingEnds, lvAmountSpent, lvImpressions, lvReach,lvResultRate,lvResultIndicator,lvCPM,lvLinkClicks,lvCTR,lvCPC,lvRegistrationsCompleted,lvCostperRegistrationCompleted,lvLeads, lvCostperLead,lvAppointmentsScheduled, lvCostperSchedule,lvPurchases,lvPurchasesConversionValue);
+end if;
+end;
