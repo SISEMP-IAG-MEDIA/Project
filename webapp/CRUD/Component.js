@@ -34,7 +34,7 @@ sap.ui.define([
 
 			this.getRouter().initialize();
 
-			var oModel = new ODataModel("http://h06.cob.csuchico.edu:8000/gbi-student-275/gbi/services/gbi.xsodata");
+			var oModel = new ODataModel("http://h06.cob.csuchico.edu:8000/gbi-student-275/gbi1/services/gbi.xsodata");
 			this.setModel(oModel, 'gbi');
 		}
 
