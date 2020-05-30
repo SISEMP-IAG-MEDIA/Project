@@ -2,7 +2,7 @@ service {
     
     
     "gbi-student-275.gbi1.data::GBI_275.MASTERDATA.CAMPAIGN" as "Campaigns"
-        navigates ("GYA" as "GYA");
+        navigates ("CAMPAIGN" as "CAMPAIGN");
         key generate local "GenID";
     
 
