@@ -1,0 +1,92 @@
+<mvc:View
+	controllerName="gbi1.controller.Details"
+	xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:f="sap.ui.layout.form"
+	xmlns="sap.m">
+	<Page title="Campaign Details" >
+	   <l:Grid
+		defaultSpan="L12 M12 S12"
+		width="auto">
+		<l:content>
+			<f:SimpleForm id="idCampaignForm"
+				minWidth="1024"
+				maxContainerCols="2"
+				editable="false"
+				layout="ResponsiveGridLayout"
+				title="Campaign Details"
+				labelSpanL="4"
+				labelSpanM="4"
+				emptySpanL="0"
+				emptySpanM="0"
+				columnsL="2"
+				columnsM="2">
+				<f:content>
+					
+					<core:Title text="Campaign" />
+					<Label text="Number" />
+					<Text text="{gbi1>ID.CampaignID}" />
+					<Label text="Name" />
+					<Text text="{gbi1>CampaignName}" />
+
+                    <core:Title text="Dates" />
+					<Label text="Reporting Starts" />
+					<Text text="{gbi1>ReportingStarts}" />
+					<Label text="Reporting Ends" />
+					<Text text="{gbi1>ReportingEnds}" />
+					
+					<core:Title text="Insights" />
+					<Label text="" />
+					<Text text="{gbi1>Reach}" />
+					<Label text="Reach" />
+					<Text text="Impressions" />
+					<Label text="{gbi1>Impressions}" />
+					<Text text="Link clicks" />
+					<Label text="{gbi1>LinkClicks}" />
+				</f:content>
+			</f:SimpleForm>
+		</l:content>
+	</l:Grid>	
+
+    <Table id="idOrdersTable"
+		inset="false"
+		itemPress = "handleTableRowPress"
+		items='{gbi>Orders}'>
+        <columns>
+            <Column>
+        		<header>
+                    <Text text="ID" />
+                </header>
+            </Column>
+             <Column>
+        		<header>
+                    <Text text="Created At" />
+                </header>
+            </Column>
+            <Column>
+        		<header>
+                    <Text text="Amount" />
+                </header>
+            </Column>
+            <Column>
+        		<header>
+                    <Text text="Currency" />
+                </header>
+            </Column>
+            
+        </columns>
+	    <items>
+        	<ColumnListItem>
+        		
+        		<Text text="{gbi>ID.OrderID}"  />
+        		<Text text="{path: 'gbi>CreatedAt', formatter: '.date'}"  />
+        		<Text text="{path: 'gbi>GrossAmount.Amount', formatter: '.formatCurrency'}"  />
+        		<Text text="{gbi>GrossAmount.Currency}"  />
+        		
+        	</ColumnListItem>
+        </items>
+    </Table>
+           
+	</Page>
+</mvc:View>

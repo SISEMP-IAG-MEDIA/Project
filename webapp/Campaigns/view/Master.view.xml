@@ -1,0 +1,16 @@
+<mvc:View controllerName="gbi1.controller.Master" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m">
+	<Page title="Campaing">
+<List 
+		id="ShortCampaingList"
+		headerText="Campaings"
+		items="{gbi1>/Campaing}" >
+		<StandardListItem
+			type="Active"
+			press="handleListItemPress"
+			title="{gbi1>ID.CampaingID}"
+			description="{gbi1>CampaingName}"	 />
+	</List>
+
+	</Page>
+</mvc:View>

@@ -1,8 +1,8 @@
 import = [
 	{
-		table = "gbi-student-275.gbi.data::GBI_275.MASTERDATA.GYA";
+		table =  "gbi-student-275.gbi1.data::GBI_275.MASTERDATA.CAMPAIGN";
 		schema = "GBI_275";
-		file = "gbi-student-275.gbi.data:GYA-Main-Campaigns-Lifetime.csv";
+		file = "gbi-student-275.gbi1.data:GYA-Main-Campaigns-Lifetime.csv";
 		header = false;
 	}
 ];

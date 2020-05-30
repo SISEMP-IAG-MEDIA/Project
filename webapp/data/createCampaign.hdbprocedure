@@ -1,5 +1,5 @@
 PROCEDURE
-    "GBI_275"."gbi-student-275.gbi.data::createCampaign" 
+    "GBI_275"."gbi-student-275.gbi1.data::createCampaign" 
     
   LANGUAGE SQLSCRIPT
   SQL SECURITY INVOKER AS 
@@ -9,9 +9,25 @@ declare	lvCampaignID  String;
 declare lvReportingStarts  String;
 declare lvCampaignName  String;
 declare lvReportingEnds  String;
-
-select "ID.CampaignID", "ReportingStarts", "CampaignName", "ReportingEnds"
-into lvCampaignID, lvReportingStarts, lvCampaignName, lvReportingEnds from :intab;
+declare lvAmountSpent String;
+declare lvImpressions String;
+declare lvReach String;
+declare lvResultRate String;
+declare lvResultIndicator	String;
+declare	lvCPM String;
+declare lvLinkClicks String;
+declare	lvCTR String;
+declare	lvCPC String;
+declare	lvRegistrationsCompleted String;
+declare	lvCostperRegistrationCompleted String;
+declare	lvLeads String;
+declare	lvCostperLead String;
+declare	lvAppointmentsScheduled String;
+declare	lvCostperSchedule String;
+declare	lvPurchases String;
+declare	lvPurchasesConversionValue String;
+select "ID.CampaignID", "ReportingStarts", "CampaignName", "ReportingEnds", "AmountSpent","Impressions", "Reach","ResultRate","ResultIndicator","CPM","LinkClicks","CTR","CPC","RegistrationsCompleted","CostperRegistrationCompleted","Leads","CostperLead","AppointmentsScheduled","CostperSchedule","Purchases","PurchasesConversionValue"
+into lvCampaignID, lvReportingStarts, lvCampaignName, lvReportingEnds, lvAmountSpent, lvImpressions, lvReach,lvResultRate,lvResultIndicator,lvCPM,lvLinkClicks,lvCTR,lvCPC,lvRegistrationsCompleted,lvCostperRegistrationCompleted,lvLeads, lvCostperLead,lvAppointmentsScheduled, lvCostperSchedule,lvPurchases,lvPurchasesConversionValue from :intab;
 
 if :lvCampaignName = '' then
   outtab = select 500 as http_status_code,
@@ -19,7 +35,7 @@ if :lvCampaignName = '' then
               ' No Way! CampaignName field must not be empty' as detail from dummy;
 else
 
-insert into "gbi-student-275.gbi.data::GBI_275.MASTERDATA.GYA"
-         values ("gbi-student-275.gbi.data::campaignid".NEXTVAL,lvCampaignID, lvReportingStarts, lvCampaignName, lvReportingEnds);
+insert into "gbi-student-275.gbi.data::GBI_275.MASTERDATA.CAMPAIGN"
+         values ("gbi-student-275.gbi.data::campaignid".NEXTVAL,lvCampaignID, lvReportingStarts, lvCampaignName, lvReportingEnds, lvAmountSpent, lvImpressions, lvReach,lvResultRate,lvResultIndicator,lvCPM,lvLinkClicks,lvCTR,lvCPC,lvRegistrationsCompleted,lvCostperRegistrationCompleted,lvLeads, lvCostperLead,lvAppointmentsScheduled, lvCostperSchedule,lvPurchases,lvPurchasesConversionValue);
 end if;
 end;
