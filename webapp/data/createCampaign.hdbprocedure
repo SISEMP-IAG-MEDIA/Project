@@ -1,0 +1,25 @@
+PROCEDURE
+    "GBI_275"."gbi-student-275.gbi.data::createCampaign" 
+    
+  LANGUAGE SQLSCRIPT
+  SQL SECURITY INVOKER AS 
+
+begin
+declare	lvCampaignID  String;
+declare lvReportingStarts  String;
+declare lvCampaignName  String;
+declare lvReportingEnds  String;
+
+select "ID.CampaignID", "ReportingStarts", "CampaignName", "ReportingEnds"
+into lvCampaignID, lvReportingStarts, lvCampaignName, lvReportingEnds from :intab;
+
+if :lvCampaignName = '' then
+  outtab = select 500 as http_status_code,
+               'Campaign Name cannot be null '  as error_message,
+              ' No Way! CampaignName field must not be empty' as detail from dummy;
+else
+
+insert into "gbi-student-275.gbi.data::GBI_275.MASTERDATA.GYA"
+         values ("gbi-student-275.gbi.data::campaignid".NEXTVAL,lvCampaignID, lvReportingStarts, lvCampaignName, lvReportingEnds);
+end if;
+end;

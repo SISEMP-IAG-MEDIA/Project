@@ -1,0 +1,32 @@
+namespace "gbi-student-275".gbi.data;
+
+@Schema: 'GBI_275' 
+context GBI_275 { 
+    
+    type IDType 
+        {
+            CampaignID : String(10);
+        };
+    
+    @Catalog.tableType: #COLUMN
+    	entity CUSTOMERS {
+        	key	CampaignID : String(10) not null;
+		    ReportingStarts : String(35) ;
+		    CampaignName : String(35) ;
+		    ReportingEnds : String(35) ;
+		    AmountSpent (GBP): ValueType; 
+		    Reach: ValueType; 
+		    ResultRate: ValueType; 
+		    ResultIndicator: ValueType; 
+            CPM : ValueType;
+            CTR : ValueType;
+            RegistrationsCompleted: ValueType; 
+            CostperRegistration Completed (GBP): ValueType; 
+            CostperLead: ValueType; 
+            CostperSchedule : ValueType; 
+            Purchases: ValueType; 
+            PurchasesConversionValue: ValueType; 
+    	};
+};
+
+
