@@ -9,7 +9,7 @@ context GBI_275 {
         };
     
     @Catalog.tableType: #COLUMN
-    	entity CUSTOMERS {
+    	entity CAMPAIGNS {
         	key	CampaignID : String(10) not null;
 		    ReportingStarts : String(35) ;
 		    CampaignName : String(35) ;
@@ -21,12 +21,14 @@ context GBI_275 {
             CPM : ValueType;
             CTR : ValueType;
             RegistrationsCompleted: ValueType; 
-            CostperRegistration Completed (GBP): ValueType; 
+            CostperRegistrationCompleted: ValueType; 
             CostperLead: ValueType; 
             CostperSchedule : ValueType; 
             Purchases: ValueType; 
             PurchasesConversionValue: ValueType; 
     	};
 };
+
+
 
 
