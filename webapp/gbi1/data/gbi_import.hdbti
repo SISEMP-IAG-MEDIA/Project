@@ -4,5 +4,6 @@ import = [
 		schema = "GBI_275";
 		file = "gbi-student-271.gbi1.data:GYA-Main-Campaigns-Lifetime.csv";
 		header = false;
+	
 	}
 ];

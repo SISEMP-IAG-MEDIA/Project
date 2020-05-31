@@ -26,8 +26,10 @@ declare	lvAppointmentsScheduled String;
 declare	lvCostperSchedule String;
 declare	lvPurchases String;
 declare	lvPurchasesConversionValue String;
+
 select "ID.CampaignID", "ReportingStarts", "CampaignName", "ReportingEnds", "AmountSpent","Impressions", "Reach","ResultRate","ResultIndicator","CPM","LinkClicks","CTR","CPC","RegistrationsCompleted","CostperRegistrationCompleted","Leads","CostperLead","AppointmentsScheduled","CostperSchedule","Purchases","PurchasesConversionValue"
 into lvCampaignID, lvReportingStarts, lvCampaignName, lvReportingEnds, lvAmountSpent, lvImpressions, lvReach,lvResultRate,lvResultIndicator,lvCPM,lvLinkClicks,lvCTR,lvCPC,lvRegistrationsCompleted,lvCostperRegistrationCompleted,lvLeads, lvCostperLead,lvAppointmentsScheduled, lvCostperSchedule,lvPurchases,lvPurchasesConversionValue from :intab;
+
 
 
 if :lvCampaignName = '' then

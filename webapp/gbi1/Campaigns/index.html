@@ -1,32 +1,34 @@
-
 <!DOCTYPE html>
 <html>
-<head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title> Campaigns</title> 
 
-    <script id="sap-ui-bootstrap"
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta charset="UTF-8">
+
+  <title>Campaigns App</title>
+  
+  <!-- Bootstrap the SAPUI5 libraries and create the namespaces for the application -->
+  <script id="sap-ui-bootstrap" 
         type="text/javascript"
-        src="/sap/ui5/1/resources/sap-ui-core.js" 
-        data-sap-ui-theme="sap_bluecrystal"
-        data-sap-ui-libs="sap.m"
-        data-sap-ui-xx-bindingSyntax="complex" 
-        data-sap-ui-resourceroots = '{
-            "gbi" : "./"
-        }'></script>
-        
-    <script>
+  	    src="/sap/ui5/1/resources/sap-ui-core.js" 
+          data-sap-ui-theme="sap_bluecrystal" 
+          data-sap-ui-libs="sap.m" 
+          data-sap-ui-resourceroots = '{ 
+            "gbi1" : "./"
+        }'>
+  </script>
+
+  <!-- Load the component defined in the Component.js file -->
+  <script>
+    new sap.ui.core.ComponentContainer({
+        name: "gbi1"
+    }).placeAt("content")
     
-		new sap.m.Shell("Shell",{
-			app: new sap.ui.core.ComponentContainer({
-				name: 'gbi1'
-			})
-		}).placeAt('uiArea');
-				
-		</script>
+  </script>
 
 </head>
-<body class="sapUiBody">
-    <div id="uiArea"></div>
+
+<body class="sapUiBody" id="content">
 </body>
+
 </html>
