@@ -1,6 +1,0 @@
-schema = "GBI_271";
-start_with = 25000;
-increment_by = 1000;
-nomaxvalue = true;
-nominvalue = true;
-cycles = false;

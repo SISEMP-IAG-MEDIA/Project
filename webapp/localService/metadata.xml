@@ -1,0 +1,61 @@
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="433adf1b4d4140641398975b" xml:lang="en" sap:schema-version="0000" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityContainer Name="433adf1b4d4140641398975b_Entities" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="AdSpendSet" EntityType="433adf1b4d4140641398975b.AdSpend" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <EntitySet Name="CustomerSet" EntityType="433adf1b4d4140641398975b.Customer" sap:creatable="true" sap:updatable="true" sap:deletable="true"/>
+                <AssociationSet Name="CustomerAdSpendAdSpend" Association="433adf1b4d4140641398975b.CustomerAdSpendAdSpend" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="CustomerSet" Role="FromRole_CustomerAdSpendAdSpend"/>
+                    <End EntitySet="AdSpendSet" Role="ToRole_CustomerAdSpendAdSpend"/>
+                </AssociationSet>
+            </EntityContainer>
+            <EntityType Name="AdSpend" sap:pdm-semantics="business-data">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Campaign" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="AgreementNo"/>
+                <Property Name="Date" Type="Edm.DateTime" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:display-format="Date" sap:label="AgreementRowNumber"/>
+                <Property Name="Cost" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ItemNo"/>
+                <Property Name="Revenue" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ItemDescription"/>
+                <Property Name="Reach" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ItemGroup"/>
+                <Property Name="ViewContent" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="PlannedQuantity"/>
+                <Property Name="AddToCart" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="UnitPrice"/>
+                <Property Name="Checkout1" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="PriceCurrency"/>
+                <Property Name="Purchase" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="UoMEntry"/>
+                <Property Name="___FK_c11b4407a3721b6b0d721a42" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="From.BA"/>
+            </EntityType>
+            <EntityType Name="Customer" sap:pdm-semantics="business-data">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Name" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="AgreementNo"/>
+                <Property Name="Email" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="BPCode"/>
+                <Property Name="Phone" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="BPName"/>
+                <Property Name="Mobile" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ContactPersonCode"/>
+                <Property Name="LandingPage" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="StartDate"/>
+                <Property Name="AddToCart" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="EndDate"/>
+                <Property Name="CheckoutPage" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Status"/>
+                <Property Name="ThankYouPage" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="TerminateDate"/>
+                <Property Name="UserName" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Description"/>
+                <Property Name="Password" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="AgreementType"/>
+                <Property Name="AdSpend1" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="IgnorePricesInAgreement"/>
+                <Property Name="AdRevenue" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:calculated="{&quot;calculation&quot;:&quot;[{\&quot;label\&quot;:\&quot;PROPERTY\&quot;,\&quot;name\&quot;:\&quot;property\&quot;,\&quot;entityId\&quot;:\&quot;AdSpend\&quot;,\&quot;navPropId\&quot;:\&quot;AdSpend\&quot;,\&quot;navPropOp\&quot;:\&quot;sum\&quot;,\&quot;propertyId\&quot;:\&quot;Revenue\&quot;,\&quot;type\&quot;:\&quot;property\&quot;,\&quot;propertyType\&quot;:\&quot;Decimal\&quot;,\&quot;isNewLine\&quot;:false,\&quot;id\&quot;:1,\&quot;computedType\&quot;:\&quot;number\&quot;,\&quot;navPropName\&quot;:\&quot;AdSpend\&quot;,\&quot;entityName\&quot;:\&quot;AdSpend\&quot;,\&quot;propertyName\&quot;:\&quot;Revenue\&quot;}]&quot;,&quot;inputProperties&quot;:[{&quot;_id&quot;:&quot;5ed652e868948935508f60f6&quot;,&quot;navPropId&quot;:&quot;AdSpend&quot;,&quot;entityId&quot;:&quot;AdSpend&quot;,&quot;propertyId&quot;:&quot;Revenue&quot;}]}" sap:label="Series"/>
+                <NavigationProperty Name="AdSpend" Relationship="433adf1b4d4140641398975b.CustomerAdSpendAdSpend" FromRole="FromRole_CustomerAdSpendAdSpend" ToRole="ToRole_CustomerAdSpendAdSpend"/>
+            </EntityType>
+            <Association Name="CustomerAdSpendAdSpend">
+                <End Type="433adf1b4d4140641398975b.Customer" Multiplicity="1" Role="FromRole_CustomerAdSpendAdSpend"/>
+                <End Type="433adf1b4d4140641398975b.AdSpend" Multiplicity="*" Role="ToRole_CustomerAdSpendAdSpend"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_CustomerAdSpendAdSpend">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_CustomerAdSpendAdSpend">
+                        <PropertyRef Name="___FK_c11b4407a3721b6b0d721a42"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

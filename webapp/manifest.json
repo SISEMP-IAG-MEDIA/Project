@@ -1,0 +1,183 @@
+{
+	"_version": "1.8.0",
+	"sap.app": {
+		"_version": "1.3.0",
+		"id": "com.sap.build.standard.manageBlanketAgreements",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"applicationVersion": {
+			"version": "1.2.2"
+		},
+		"ach": "ach",
+		"resources": "resources.json",
+		"dataSources": {
+			"local": {
+				"uri": "/here/goes/your/serviceUrl/local/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+			}
+		},
+		"sourceTemplate": {
+			"id": "sap.ui.ui5-template-plugin.2masterdetail",
+			"version": "1.32.5"
+		}
+	},
+	"sap.fiori": {
+		"_version": "1.1.0",
+		"registrationIds": [],
+		"archeType": "transactional"
+	},
+	"sap.ui": {
+		"_version": "1.3.0",
+		"technology": "UI5",
+		"icons": {
+			"icon": "sap-icon://detail-view",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"_version": "1.3.0",
+		"rootView": {
+			"viewName": "com.sap.build.standard.manageBlanketAgreements.view.App",
+			"type": "XML",
+			"async": false,
+			"id": "app"
+		},
+		"autoPrefixId": true,
+		"dependencies": {
+			"minUI5Version": "1.50.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/i18n.properties"
+			},
+			"": {
+				"dataSource": "local",
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"preload": true,
+				"settings": {
+					"loadMetadataAsync": false,
+					"json": true,
+					"bJSON": true,
+					"defaultBindingMode": "TwoWay",
+					"defaultCountMode": "Inline",
+					"useBatch": true,
+					"refreshAfterChange": false,
+					"disableHeadRequestForToken": true
+				}
+			}
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "com.sap.build.standard.manageBlanketAgreements.view",
+				"controlId": "idAppControl",
+				"clearTarget": false,
+				"controlAggregation": "detailPages",
+				"async": false,
+				"bypassed": {
+					"target": [
+						"2ec593d6aa6c33440d7244345_S5",
+						"471484edb3996c6d0d7219cb0_S0"
+					]
+				}
+			},
+			"targets": {
+				"471484edb3996c6d0d7219cb0_S0": {
+					"controlAggregation": "masterPages",
+					"viewName": "471484edb3996c6d0d7219cb0_S0",
+					"viewId": "471484edb3996c6d0d7219cb0_S0",
+					"viewLevel": 3,
+					"transition": "slide"
+				},
+				"2ec593d6aa6c33440d7244345_S5": {
+					"controlAggregation": "detailPages",
+					"viewName": "2ec593d6aa6c33440d7244345_S5",
+					"viewId": "2ec593d6aa6c33440d7244345_S5",
+					"viewLevel": 1,
+					"transition": "slide"
+				},
+				"LineDetails": {
+					"controlAggregation": "detailPages",
+					"viewName": "LineDetails",
+					"viewId": "LineDetails",
+					"viewLevel": 2,
+					"transition": "slide"
+				},
+				"b1757d990ce68d950d7241a94_S4": {
+					"controlAggregation": "detailPages",
+					"viewName": "b1757d990ce68d950d7241a94_S4",
+					"viewId": "b1757d990ce68d950d7241a94_S4",
+					"viewLevel": 4,
+					"transition": "slide"
+				}
+			},
+			"routes": [
+				{
+					"pattern": "471484edb3996c6d0d7219cb0_S0",
+					"name": "471484edb3996c6d0d7219cb0_S0",
+					"target": [
+						"2ec593d6aa6c33440d7244345_S5",
+						"471484edb3996c6d0d7219cb0_S0"
+					]
+				},
+				{
+					"pattern": "471484edb3996c6d0d7219cb0_S0/2ec593d6aa6c33440d7244345_S5/:context:",
+					"name": "2ec593d6aa6c33440d7244345_S5",
+					"target": [
+						"471484edb3996c6d0d7219cb0_S0",
+						"2ec593d6aa6c33440d7244345_S5"
+					]
+				},
+				{
+					"pattern": "471484edb3996c6d0d7219cb0_S0/LineDetails/:context:",
+					"name": "LineDetails",
+					"target": [
+						"471484edb3996c6d0d7219cb0_S0",
+						"LineDetails"
+					]
+				},
+				{
+					"pattern": "471484edb3996c6d0d7219cb0_S0/b1757d990ce68d950d7241a94_S4/:context:",
+					"name": "b1757d990ce68d950d7241a94_S4",
+					"target": [
+						"471484edb3996c6d0d7219cb0_S0",
+						"b1757d990ce68d950d7241a94_S4"
+					]
+				},
+				{
+					"pattern": "",
+					"name": "default",
+					"target": [
+						"2ec593d6aa6c33440d7244345_S5",
+						"471484edb3996c6d0d7219cb0_S0"
+					]
+				}
+			]
+		}
+	}
+}
